@@ -30,8 +30,9 @@ Los votos se guardan en el servidor y los nombres que siguen tapados nunca llega
 
 ## Cambiar nombres o fechas
 
-- Los participantes están en `lib/config.js`. Pon tu nombre en lugar de «Mi nombre».
+- Los participantes están en `lib/config.js`.
 - Las fechas del calendario están en ese mismo archivo, en hora de Madrid.
+- Las fotos de los candidatos van en `public/fotos/`, una por persona, con el id como nombre (`borao.jpg`, `admin.jpg` para Mario…). Si falta alguna, salen sus iniciales.
 
 ## Calendario automático
 

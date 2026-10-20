@@ -1,0 +1,4 @@
+Pon aquí una foto por persona, en formato .jpg y con el id de la persona como nombre:
+borao.jpg, blasco.jpg, civi.jpg, diego.jpg, domin.jpg, eduardo.jpg, guille.jpg, rafael.jpg,
+julian.jpg, juanjo.jpg, kike.jpg, maroto.jpg, moyano.jpg, portillo.jpg, pablito.jpg, sito.jpg, admin.jpg (Mario)
+Si falta alguna foto, se muestran sus iniciales.
