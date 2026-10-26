@@ -59,7 +59,7 @@ function viewRules(){
       <li><b>Ausencias.</b> El número de planes a los que no ha ido. Se valora especialmente faltar a los planes importantes.</li>
       <li><b>El clásico «estoy liado».</b> Estar siempre ocupado, con el trabajo, con la familia o con algo que nunca se explica del todo.</li>
       <li><b>Confirmar y no aparecer.</b> El «voy seguro» que se convierte en «al final no puedo» a las 21:47.</li>
-      <li><b>Llegar tarde e irse pronto.</b> Llegar al postre y desaparecer antes de la primera copa con un «mañana madrugo».</li>
+      <li><b>El turras.</b> Monopolizar la conversación, contar la misma historia por tercera vez y no dejar hablar a nadie. Sus monólogos sobre criptomonedas, el trabajo o la reforma de la cocina han matado más sobremesas que la cuenta.</li>
       <li><b>Dejar en visto.</b> Leer el grupo y no contestar. Contestar con un pulgar a la propuesta de viaje.</li>
       <li><b>Deudas pendientes.</b> Bizums que nunca llegan y rondas que siempre le tocan a otro.</li>
       <li><b>Amistad de temporada.</b> Aparecer solo en bodas, cumpleaños redondos o cuando necesita algo, como una mudanza.</li>
@@ -74,11 +74,11 @@ function viewRules(){
       <li><b>«Lo hablo con ella y te digo».</b> No poder confirmar ningún plan sin consultar antes. Puntúa doble si nunca vuelve con la respuesta.</li>
       <li><b>Toque de queda.</b> Tener hora de vuelta fijada y cumplirla al minuto, aunque el plan esté en su mejor momento.</li>
       <li><b>Cero decisiones propias.</b> No elegir restaurante, viaje, coche, sofá ni lo que se va a pedir de segundo.</li>
-      <li><b>El teléfono que suena.</b> Recibir la llamada a las 23:00 y cambiar de cara. Salir a contestar a la calle.</li>
       <li><b>Agenda intervenida.</b> Fines de semana con los suegros, domingos de IKEA y planes del grupo vetados sin derecho a réplica.</li>
       <li><b>Estilismo asignado.</b> Llevar la ropa que le han elegido y decir que le gusta.</li>
-      <li><b>Renuncias.</b> Viajes del grupo, partidos y despedidas a los que «no le han dejado» ir, aunque él diga que no le apetecía.</li>
-      <li><b>Ubicación compartida en tiempo real.</b> Y saberlo todo el grupo.</li>
+      <li><b>El establo, impecable.</b> Pasar la aspiradora el sábado por la mañana en lugar de venir al vermut, saber dónde va cada cojín y doblar las toallas como le han enseñado. Un buen pony mantiene limpia su cuadra.</li>
+      <li><b>El portavoz.</b> Contestar «nosotros pensamos que…» a cualquier pregunta, aunque vaya dirigida solo a él. Hace tiempo que no se le oye una opinión en singular.</li>
+      <li><b>Paseo con correa.</b> Ser el que carga con las bolsas en las tiendas, espera sentado en la puerta del probador y da su opinión solo cuando se la piden.</li>
     </ul>
     <p class="fine">Aclaración del Comité: ser buen marido no es delito. Ser un pony sí puntúa.</p>
   </section>

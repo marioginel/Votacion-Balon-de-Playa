@@ -46,11 +46,12 @@ function render(){
   S.pendingRender=false;
   $('#status').textContent=statusText();
   $('#who').innerHTML=S.me?`<div>${esc(S.me.name)}</div><button data-act="logout">Salir</button>`:'';
-  $('#tabs').innerHTML=[['vote','Votar'],['rank','Clasificación'],['rules','Normas']]
+  $('#tabs').innerHTML=[['vote','Votar'],['cands','Candidatos'],['rank','Clasificación'],['rules','Normas']]
     .map(([id,l])=>`<button data-tab="${id}" ${S.tab===id?'aria-current="page"':''}>${l}</button>`).join('');
   const app=$('#app');
   if(S.tab==='rules')app.innerHTML=viewRules();
   else if(!S.pub)app.innerHTML=S.loadError?`<div class="card"><h2>No se pudo cargar la gala</h2><p class="sub">Revisa tu conexión y recarga la página.</p></div>`:`<p class="empty">Cargando la gala…</p>`;
+  else if(S.tab==='cands')app.innerHTML=viewCandidates();
   else if(S.tab==='rank')app.innerHTML=viewRanking();
   else app.innerHTML=S.me?viewVote():viewLogin();
   renderSavebar();
@@ -116,6 +117,14 @@ function renderSavebar(){
   bar.innerHTML=`<div class="wrap"><span class="msg">${msg}</span><button class="btn" data-act="save" ${done<9||saved||S.saving?'disabled':''}>${S.saving?'Guardando…':'Guardar votos'}</button></div>`;
 }
 
+const initials=n=>n.split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+function viewCandidates(){
+  const list=sortedParts();
+  return `<p class="sub">Los ${list.length} aspirantes de esta edición. Todos optan a los tres premios, para bien o para mal.</p>
+  <div class="cands">${list.map(p=>`<figure class="cand">
+    <div class="ph"><span class="ini" aria-hidden="true">${esc(initials(p.name))}</span><img src="/fotos/${esc(p.id)}.jpg" alt="${esc(p.name)}" loading="lazy" onerror="this.remove()"></div>
+    <figcaption>${esc(p.name)}</figcaption></figure>`).join('')}</div>`;
+}
 function viewRanking(){
   const p=S.pub;
   const firstPaint=!S.seen;if(firstPaint)S.seen=new Set();

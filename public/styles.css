@@ -131,3 +131,12 @@ details summary{cursor:pointer;font-weight:600;color:var(--muted);margin-top:8px
 a.btn{text-decoration:none}
 .linkbtn{background:none;border:0;color:var(--gold);font-weight:600;padding:6px 0;text-decoration:underline}
 .ok{color:var(--ok);font-weight:600}
+
+nav.tabs button{font-size:.92rem;padding-left:2px;padding-right:2px}
+.cands{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (min-width:560px){.cands{grid-template-columns:repeat(3,1fr)}}
+.cand{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:10px 10px 14px;text-align:center}
+.cand .ph{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;background:linear-gradient(160deg,var(--surface2),var(--gold-soft))}
+.cand .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cand .ini{position:absolute;inset:0;display:grid;place-items:center;font-family:"Bodoni Moda",serif;font-weight:800;font-size:2.6rem;color:var(--gold)}
+.cand figcaption{font-family:"Bodoni Moda",serif;font-weight:700;font-size:1.15rem;line-height:1.2;margin-top:10px}
