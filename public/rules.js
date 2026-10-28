@@ -26,7 +26,7 @@ function viewRules(){
   <section class="card">
     <h2>Sistema de votación</h2>
     <ul>
-      <li>Vota todo el grupo: los 17. Cada votante tiene un PIN personal e intransferible que recibe por correo. Prestar el PIN se considera fraude electoral y será castigado con el desprecio general.</li>
+      <li>Vota todo el grupo: los 17. Cada votante tiene un PIN personal e intransferible que recibe por correo. Prestar el PIN o intetnar conseguir un pin de otro mediante intentar engañar al sistema se considera fraude electoral y será castigado con el desprecio general.</li>
       <li>En cada premio se eligen tres nombres, por orden. El primero recibe <b>3 puntos</b>, el segundo <b>2</b> y el tercero <b>1</b>, igual que los periodistas del Balón de Oro de verdad.</li>
       <li>Hay que rellenar los tres premios para que el voto cuente. Abstenerse no es una opción: aquí se moja todo el mundo.</li>
       <li>Nadie puede votarse a sí mismo. Ni siquiera para el Mojón, por mucha autocrítica que tengas.</li>
@@ -41,14 +41,14 @@ function viewRules(){
     <h2><span class="icon" aria-hidden="true">⚽</span>Balón de Oro</h2>
     <p>El trofeo más prestigioso del grupo. Premia al jugador que mejor año ha hecho con los colegas. Como en el original, el jurado valorará el rendimiento individual y colectivo, el palmarés y la clase. Criterios orientativos:</p>
     <ul>
-      <li><b>Rendimiento festivo.</b> Borracheras memorables, cierres de bar, aguante hasta el último after y capacidad de recuperación al día siguiente sin quejarse. Puntúa doble levantarse para el desayuno de resaca.</li>
-      <li><b>Presencia.</b> Estar en todos los planes, desde la cena improvisada de un martes hasta el viaje de grupo. Decir «yo me apunto» antes de saber de qué va el plan.</li>
+      <li><b>Rendimiento festivo.</b> Borracheras memorables, cierres de bar o aguantar hasta el final, per se premia la calidad, no la cantidad. Puntúa doble si s ha generado contenido audiovisual.</li>
+      <li><b>Presencia.</b> Estar en todos los planes, desde la cena improvisada hasta los pocos viajes del año. Decir «yo me apunto» antes de saber de qué va el plan.</li>
       <li><b>Palmarés del año.</b> Logros personales: ascensos, cambios de trabajo, boda, hijos, casa nueva, maratones, carnés aprobados o haber dejado de fumar (otra vez).</li>
       <li><b>Liderazgo.</b> Organizar planes, reservar mesa, crear el grupo de WhatsApp del viaje y llevar las cuentas sin que nadie se lo pida.</li>
       <li><b>Deportividad y fair play.</b> Pagar su ronda sin mirar a otro lado, hacer el Bizum el mismo día, no escaquearse cuando toca pagar y aceptar las bromas con elegancia.</li>
-      <li><b>Ser buena persona.</b> Estar en los malos momentos, coger el teléfono a las tres de la mañana, llevar a casa al que no se tiene en pie y defender al grupo en cualquier conversación.</li>
+      <li><b>Ser buena persona.</b> Estar en los malos momentos, llevar a casa al que no se tiene en pie y defender al grupo en cualquier conversación.</li>
       <li><b>Momentos para el recuerdo.</b> Protagonizar la anécdota que se seguirá contando dentro de diez años.</li>
-      <li><b>Juego en el grupo de WhatsApp.</b> Memes de calidad, audios con gracia y respuestas rápidas. No puntúan las cadenas ni los audios de seis minutos.</li>
+      <li><b>Juego en el grupo de WhatsApp.</b> Memes de calidad, audios con gracia y respuestas rápidas. No puntúan las cadenas ni los audios de seis minutos (ejem. Enrique y Rafita).</li>
     </ul>
   </section>
 
@@ -60,7 +60,7 @@ function viewRules(){
       <li><b>El clásico «estoy liado».</b> Estar siempre ocupado, con el trabajo, con la familia o con algo que nunca se explica del todo.</li>
       <li><b>Confirmar y no aparecer.</b> El «voy seguro» que se convierte en «al final no puedo» a las 21:47.</li>
       <li><b>El turras.</b> Monopolizar la conversación, contar la misma historia por tercera vez y no dejar hablar a nadie. Sus monólogos sobre criptomonedas, el trabajo o la reforma de la cocina han matado más sobremesas que la cuenta.</li>
-      <li><b>Dejar en visto.</b> Leer el grupo y no contestar. Contestar con un pulgar a la propuesta de viaje.</li>
+      <li><b>Dejar en visto.</b> Leer el grupo y no contestar. Contestar con un pulgar a las propuestas.</li>
       <li><b>Deudas pendientes.</b> Bizums que nunca llegan y rondas que siempre le tocan a otro.</li>
       <li><b>Amistad de temporada.</b> Aparecer solo en bodas, cumpleaños redondos o cuando necesita algo, como una mudanza.</li>
       <li><b>«La próxima voy fijo».</b> Repetido más de tres veces en el año sin cumplirlo, suma de oficio.</li>
@@ -76,7 +76,7 @@ function viewRules(){
       <li><b>Cero decisiones propias.</b> No elegir restaurante, viaje, coche, sofá ni lo que se va a pedir de segundo.</li>
       <li><b>Agenda intervenida.</b> Fines de semana con los suegros, domingos de IKEA y planes del grupo vetados sin derecho a réplica.</li>
       <li><b>Estilismo asignado.</b> Llevar la ropa que le han elegido y decir que le gusta.</li>
-      <li><b>El establo, impecable.</b> Pasar la aspiradora el sábado por la mañana en lugar de venir al vermut, saber dónde va cada cojín y doblar las toallas como le han enseñado. Un buen pony mantiene limpia su cuadra.</li>
+      <li><b>El establo, impecable.</b> Pasar la aspiradora el sábado por la mañana en lugar de tomar el aperitivo, saber dónde va cada cojín y doblar las toallas como le han enseñado. Un buen pony mantiene limpia su cuadra.</li>
       <li><b>El portavoz.</b> Contestar «nosotros pensamos que…» a cualquier pregunta, aunque vaya dirigida solo a él. Hace tiempo que no se le oye una opinión en singular.</li>
       <li><b>Paseo con correa.</b> Ser el que carga con las bolsas en las tiendas, espera sentado en la puerta del probador y da su opinión solo cuando se la piden.</li>
     </ul>
@@ -95,7 +95,7 @@ function viewRules(){
 
   <section class="card">
     <h2>La gala</h2>
-    <p>La entrega de premios se celebrará el <b>12 de diciembre en la comida de Navidad en Casa Club</b>. Los premiados están obligados a recoger su trofeo en persona y dar un discurso de agradecimiento. Se agradecerá emoción, lágrimas y menciones a la familia, especialmente en el caso del Pony.</p>
+    <p>La entrega de premios se celebrará el <b>12 de diciembre en la comida de Navidad en Casa Club</b>. Los premiados están obligados a recoger su trofeo en persona (sino deberan grabarse en caso de ser candidatos si estan en el top 3 y no asisten) y dar un discurso de agradecimiento. Se agradecerá emoción, lágrimas y menciones a la familia, especialmente en el caso del Pony.</p>
     <p>El ganador del Mojón no podrá excusarse por estar ocupado ese día. Sería demasiado perfecto.</p>
   </section>
   </div>`;
