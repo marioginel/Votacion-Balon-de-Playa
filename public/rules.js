@@ -26,7 +26,7 @@ function viewRules(){
   <section class="card">
     <h2>Sistema de votación</h2>
     <ul>
-      <li>Vota todo el grupo: los 17. Cada votante tiene un PIN personal e intransferible que recibe por correo. Prestar el PIN o intetnar conseguir un pin de otro mediante intentar engañar al sistema se considera fraude electoral y será castigado con el desprecio general.</li>
+      <li>Vota todo el grupo: los 17. Cada votante tiene un PIN personal e intransferible que recibe por correo. Prestar el PIN o intentar conseguir un pin de otro mediante intentar engañar al sistema se considera fraude electoral y será castigado duramente el 12 de diciembre.</li>
       <li>En cada premio se eligen tres nombres, por orden. El primero recibe <b>3 puntos</b>, el segundo <b>2</b> y el tercero <b>1</b>, igual que los periodistas del Balón de Oro de verdad.</li>
       <li>Hay que rellenar los tres premios para que el voto cuente. Abstenerse no es una opción: aquí se moja todo el mundo.</li>
       <li>Nadie puede votarse a sí mismo. Ni siquiera para el Mojón, por mucha autocrítica que tengas.</li>
