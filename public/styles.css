@@ -51,7 +51,7 @@ p.sub{color:var(--muted);margin:0 0 16px}
 .award .icon{font-size:1.5rem;margin-right:6px}
 
 label{display:block;font-weight:600;margin:12px 0 6px}
-select,input[type=text],input[type=password],input[type=tel],input[type=email]{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface2)}
+select,textarea,input[type=text],input[type=password],input[type=tel],input[type=email]{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface2)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:999px;padding:12px 20px;font-weight:700;background:var(--gold);color:var(--on-gold)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
@@ -140,3 +140,22 @@ nav.tabs button{font-size:.92rem;padding-left:2px;padding-right:2px}
 .cand .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cand .ini{position:absolute;inset:0;display:grid;place-items:center;font-family:"Bodoni Moda",serif;font-weight:800;font-size:2.6rem;color:var(--gold)}
 .cand figcaption{font-family:"Bodoni Moda",serif;font-weight:700;font-size:1.15rem;line-height:1.2;margin-top:10px}
+
+.rsvp{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px;padding:14px 16px;border-radius:18px;border:1.5px dashed var(--gold);background:color-mix(in srgb,var(--gold) 8%,transparent)}
+.rsvp.yes{border-style:solid;border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+.rsvp.no{border-style:solid;border-color:var(--line);background:var(--surface)}
+.rsvp-text{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 180px}
+.rsvp-text span{color:var(--muted);font-size:.88rem}
+.rsvp.yes .rsvp-text b{color:var(--ok)}
+.rsvp-btns{display:flex;gap:8px}
+.rsvp-btn{border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:9px 16px;font-weight:700;font-size:.95rem}
+.rsvp-btn.on{background:var(--gold);border-color:var(--gold);color:var(--on-gold)}
+.rsvp.yes .rsvp-btn.on{background:var(--ok);border-color:var(--ok);color:var(--on-gold)}
+
+textarea{font-family:inherit;resize:vertical;line-height:1.5}
+
+.cheat{margin:4px 0 14px;padding:14px 16px;border-radius:14px;border:2px solid var(--danger);background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--text);font-weight:600;line-height:1.45}
+.cheat::before{content:"🚨 ";}
+.cheat.shake{animation:shake .45s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){.cheat.shake{animation:none}}

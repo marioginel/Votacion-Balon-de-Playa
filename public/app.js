@@ -6,7 +6,7 @@ const CATS=[
 const POINTS=[3,2,1];
 const TOKEN_KEY='premios-oro-2026-token';
 
-const S={pub:null,me:null,token:null,tab:'vote',draft:null,dirty:false,saving:false,seen:null,
+const S={photos:{},photosFor:null,pub:null,me:null,token:null,tab:'vote',draft:null,dirty:false,saving:false,seen:null,
   pendingRender:false,showReq:false,reqMsg:null,loadError:false};
 
 const $=s=>document.querySelector(s);
@@ -19,7 +19,7 @@ async function api(path,{method='GET',body}={}){
   if(S.token)headers.Authorization='Bearer '+S.token;
   const r=await fetch('/api/'+path,{method,headers,body:body?JSON.stringify(body):undefined});
   let data={};try{data=await r.json();}catch(e){}
-  if(!r.ok){const err=new Error(data.error||'Algo ha fallado. Inténtalo otra vez.');err.status=r.status;throw err;}
+  if(!r.ok){const err=new Error(data.error||'Algo ha fallado. Inténtalo otra vez.');err.status=r.status;err.data=data;throw err;}
   return data;
 }
 
@@ -51,7 +51,7 @@ function render(){
   const app=$('#app');
   if(S.tab==='rules')app.innerHTML=viewRules();
   else if(!S.pub)app.innerHTML=S.loadError?`<div class="card"><h2>No se pudo cargar la gala</h2><p class="sub">Revisa tu conexión y recarga la página.</p></div>`:`<p class="empty">Cargando la gala…</p>`;
-  else if(S.tab==='cands')app.innerHTML=viewCandidates();
+  else if(S.tab==='cands'){app.innerHTML=viewCandidates();loadPhotos();}
   else if(S.tab==='rank')app.innerHTML=viewRanking();
   else app.innerHTML=S.me?viewVote():viewLogin();
   renderSavebar();
@@ -74,12 +74,13 @@ function viewLogin(){
   const req=S.reqMsg?`<div class="card"><h2>PIN enviado</h2><p class="sub">${esc(S.reqMsg)}</p><button class="btn ghost" data-tab="rules">Mientras tanto, lee las normas</button></div>`
   :`<div class="card">
     <h2>Pide tu PIN</h2>
-    <p class="sub">Te lo mandamos al momento a tu correo. Si ya tenías uno, el anterior deja de valer.</p>
+    <p class="sub">Escribe el correo que le diste al admin. Te mandamos el PIN al momento; si ya tenías uno, el anterior deja de valer.</p>
     <label for="rq-name">Quién eres</label>
     <select id="rq-name">${opts}</select>
     <label for="rq-email">Correo electrónico</label>
     <input id="rq-email" type="email" inputmode="email" autocomplete="email" placeholder="tu@correo.com">
     <p class="err" id="rq-err"></p>
+    <div class="cheat" id="rq-cheat" role="alert" hidden></div>
     <button class="btn block" data-act="request-pin">Enviarme el PIN</button>
   </div>`;
   return login+req;
@@ -90,6 +91,17 @@ function ensureDraft(){
   const p=S.me?.ballot?.picks;
   S.draft={};CATS.forEach(c=>{S.draft[c.id]=[0,1,2].map(i=>p?.[c.id]?.[i]&&person(p[c.id][i])?p[c.id][i]:null);});
 }
+function viewRsvp(){
+  const r=S.me.rsvp,past=Date.now()>=S.pub.schedule.gala;
+  const g=r?r.going:null;
+  const label=g===true?'Confirmado: vas a la comida':g===false?'Has dicho que no vas':'¿Vienes a la comida del 12 de diciembre?';
+  return `<section class="rsvp ${g===true?'yes':g===false?'no':''}" aria-label="Asistencia a la comida">
+    <div class="rsvp-text"><b>${label}</b><span>Comida de Navidad en Casa Club, sábado 12 de diciembre</span></div>
+    ${past?'':`<div class="rsvp-btns" role="group" aria-label="¿Vas a la comida?">
+      <button class="rsvp-btn ${g===true?'on':''}" data-act="rsvp" data-v="1" aria-pressed="${g===true}">✓ Voy</button>
+      <button class="rsvp-btn ${g===false?'on':''}" data-act="rsvp" data-v="0" aria-pressed="${g===false}">✗ No voy</button></div>`}
+  </section>`;
+}
 function viewVote(){
   ensureDraft();
   const open=S.pub.open,mine=S.me.ballot,now=Date.now();
@@ -98,7 +110,7 @@ function viewVote(){
   else if(!open)head=`<div class="card"><h2>Votación cerrada</h2><p class="sub">${mine?'Tus votos cuentan. Sigue la gala en la clasificación.':'La votación se cerró antes de que votaras.'}</p></div>`;
   else head=`<p class="sub">En cada premio elige tres nombres: el primero suma 3 puntos, el segundo 2 y el tercero 1. No puedes votarte a ti mismo. Puedes cambiar tus votos hasta la noche del 6 de diciembre.</p>`;
   const others=sortedParts().filter(p=>p.id!==S.me.pid);
-  return head+CATS.map(c=>{
+  return viewRsvp()+head+CATS.map(c=>{
     const d=S.draft[c.id];
     const slots=POINTS.map((pts,i)=>`<button class="slot ${d[i]?'filled':''}" data-act="unslot" data-cat="${c.id}" data-i="${i}" ${!open?'disabled':''} aria-label="${pts} puntos: ${d[i]?esc(nameOf(d[i]))+', toca para quitar':'vacío'}">
       <span class="pts">${pts}</span><span class="nm ${d[i]?'':'empty'}">${d[i]?esc(nameOf(d[i])):'puntos'}</span></button>`).join('');
@@ -120,10 +132,23 @@ function renderSavebar(){
 const initials=n=>n.split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
 function viewCandidates(){
   const list=sortedParts();
-  return `<p class="sub">Los ${list.length} aspirantes de esta edición. Todos optan a los tres premios, para bien o para mal.</p>
-  <div class="cands">${list.map(p=>`<figure class="cand">
-    <div class="ph"><span class="ini" aria-hidden="true">${esc(initials(p.name))}</span><img src="/fotos/${esc(p.id)}.jpg" alt="${esc(p.name)}" loading="lazy" onerror="this.remove()"></div>
-    <figcaption>${esc(p.name)}</figcaption></figure>`).join('')}</div>`;
+  const note=S.me?'':`<div class="card"><p class="sub" style="margin:0">Las fotos son privadas. <button class="linkbtn" data-tab="vote">Entra con tu PIN</button> para verlas.</p></div>`;
+  return `<p class="sub">Los ${list.length} aspirantes de esta edición. Todos optan a los tres premios, para bien o para mal.</p>${note}
+  <div class="cands">${list.map(p=>{const u=S.photos[p.id];return `<figure class="cand">
+    <div class="ph"><span class="ini" aria-hidden="true">${esc(initials(p.name))}</span>${u?`<img src="${u}" alt="${esc(p.name)}">`:''}</div>
+    <figcaption>${esc(p.name)}</figcaption></figure>`}).join('')}</div>`;
+}
+/* Las fotos se piden con el token de sesión: sin PIN no se pueden descargar */
+async function loadPhotos(){
+  if(!S.me||S.photosFor===S.token)return;
+  S.photosFor=S.token;
+  await Promise.all(parts().map(async p=>{
+    try{
+      const r=await fetch('/api/foto?id='+encodeURIComponent(p.id),{headers:{Authorization:'Bearer '+S.token}});
+      if(r.ok)S.photos[p.id]=URL.createObjectURL(await r.blob());
+    }catch(e){}
+  }));
+  if(S.tab==='cands')render();
 }
 function viewRanking(){
   const p=S.pub;
@@ -163,13 +188,24 @@ document.addEventListener('click',async ev=>{
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.textContent='Escribe un correo válido, por ejemplo nombre@gmail.com.';return;}
     el.disabled=true;el.textContent='Enviando…';
     try{const r=await api('request-pin',{method:'POST',body:{pid,email}});S.reqMsg=r.message;document.activeElement.blur();render();}
-    catch(e){err.textContent=e.message;el.disabled=false;el.textContent='Enviarme el PIN';}
+    catch(e){
+      el.disabled=false;el.textContent='Enviarme el PIN';
+      if(e.data?.cheat){err.textContent='';const box=$('#rq-cheat');box.textContent=e.message;box.hidden=false;box.classList.remove('shake');void box.offsetWidth;box.classList.add('shake');}
+      else err.textContent=e.message;
+    }
   }
-  else if(act==='logout'){S.token=null;S.me=null;S.draft=null;S.dirty=false;store(null);render();}
+  else if(act==='logout'){Object.values(S.photos).forEach(u=>URL.revokeObjectURL(u));S.photos={};S.photosFor=null;S.token=null;S.me=null;S.draft=null;S.dirty=false;store(null);render();}
   else if(act==='pick'){
     const d=S.draft[el.dataset.cat],id=el.dataset.id,i=d.indexOf(id);
     if(i>=0)d[i]=null;else{const f=d.indexOf(null);if(f<0){toast('Ya tienes tres. Quita a uno primero.');return;}d[f]=id;}
     S.dirty=true;render();
+  }
+  else if(act==='rsvp'){
+    const going=el.dataset.v==='1';if(S.me.rsvp?.going===going)return;
+    el.closest('.rsvp-btns')?.querySelectorAll('button').forEach(b=>b.disabled=true);
+    try{const r=await api('rsvp',{method:'POST',body:{going}});S.me.rsvp=r.rsvp;toast(going?'¡Apuntado a la comida!':'Anotado: no vas a la comida');}
+    catch(e){toast(e.message);}
+    render();
   }
   else if(act==='unslot'){S.draft[el.dataset.cat][+el.dataset.i]=null;S.dirty=true;render();}
   else if(act==='save'){

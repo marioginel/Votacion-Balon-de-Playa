@@ -1,5 +1,8 @@
 {
   "outputDirectory": "public",
+  "functions": {
+    "api/foto.js": { "includeFiles": "fotos/**" }
+  },
   "headers": [
     { "source": "/api/(.*)", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }
   ]

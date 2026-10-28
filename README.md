@@ -52,10 +52,12 @@ Para futuros cambios repite los pasos 3 a 7. También puedes reemplazar solo los
    | Mario | `admin.jpg` |
 
    Todo en minúsculas, sin tildes ni espacios. La extensión tiene que ser `.jpg`, no `.jpeg` ni `.png`.
-3. Copia las fotos dentro de la carpeta `public/fotos/` de tu repositorio.
+3. Copia las fotos dentro de la carpeta `fotos/` de tu repositorio.
 4. En GitHub Desktop: **Commit to main** y **Push origin**.
 
 Si falta alguna foto, en su tarjeta salen sus iniciales.
+
+Las fotos son privadas: solo se ven después de entrar con el PIN. No las pongas en la carpeta `public`, porque todo lo que hay ahí lo puede ver cualquiera. Pon también el repositorio de GitHub como privado (Settings → General → Danger Zone → Change visibility), porque si es público cualquiera podría ver las fotos en GitHub.
 
 ### 3. Base de datos (si no la has creado aún)
 
@@ -87,10 +89,20 @@ En el proyecto de Vercel, ve a **Settings → Environment Variables** y añade:
 
 Después ve a **Deployments**, pulsa **⋯** en el último despliegue y elige **Redeploy**. Las variables solo se aplican al volver a desplegar.
 
-### 6. Comprobar que todo funciona
+### 6. Dar de alta los correos de todos
+
+El PIN solo se envía a los correos que tú registres. Así nadie puede hacerse pasar por otro.
+
+1. Pide a cada uno su correo (por WhatsApp, por ejemplo).
+2. Entra en `/admin.html` y pega la lista en «Importar correos» (una línea por persona: nombre y correo), o escríbelos uno a uno en «Participantes y correos».
+3. Pulsa **Enviar PIN a los que aún no lo tienen**. A cada uno le llega su PIN con el enlace a la web.
+4. Si alguien pierde el PIN, puede pedirlo otra vez desde la web con ese mismo correo, o se lo reenvías tú con **Enviar PIN nuevo**.
+5. Si cambias el correo de alguien, su PIN anterior deja de valer y hay que mandarle uno nuevo.
+
+### 7. Comprobar que todo funciona
 
 1. Abre la web y pulsa «¿No tienes PIN o lo has perdido? Pídelo aquí».
-2. Elige «Mario», pon tu correo y pide el PIN. Tiene que llegarte en unos segundos. Mira también en spam.
+2. Da de alta tu correo en `/admin.html`. Después, en la web, elige «Mario», pon ese correo y pide el PIN. Tiene que llegarte en unos segundos. Mira también en spam.
 3. Entra con ese PIN.
 4. Abre `/admin.html` con tu `ADMIN_PASSWORD`.
 5. Para probar a votar antes del 1 de noviembre:
