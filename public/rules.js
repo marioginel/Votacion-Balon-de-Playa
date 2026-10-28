@@ -2,7 +2,7 @@ function viewRules(){
   return `<div class="rules">
   <section class="card">
     <h2>Reglamento oficial</h2>
-    <p class="lead">Desde que alguien levantó una copa en una comida de Navidad y dijo «esto hay que premiarlo», el grupo reconoce cada año lo mejor, lo peor y lo más domesticado de sus miembros. Este reglamento, redactado por el Comité Organizador (o sea, el admin), regula la edición 2026 de los Premios de Oro.</p>
+    <p class="lead">Desde que dos visionaros decidieron regalar a Alvaro Civantos el Balon de Oro que Eu Farei perdio en 2024 para que pudiera dormir tranquilo, se estableció una tradición donde el grupo reconoce cada año lo mejor, lo peor y lo más domesticado de sus miembros. Este reglamento, redactado por el Comité Organizador (o sea, Mario y Jorge), regula la edición 2026 de los Premios de Oro.</p>
     <p>Participar implica aceptar estas normas, reírse de uno mismo y no guardar rencor más allá del segundo gin-tonic.</p>
   </section>
 
